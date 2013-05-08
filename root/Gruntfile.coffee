@@ -74,8 +74,8 @@ module.exports = (grunt)->
         files: '<%= coffeelint.lib.src %>'
         tasks: ['coffeelint:lib', 'coffee:lib', 'simplemocha']
       cofffeTest:
-        files: '<%= coffeelint.lib.src %>'
-        tasks: ['coffeelint:test', 'simplemocha']
+        files: '<%= coffeelint.test.src %>'
+        tasks: ['coffeelint:test', 'coffee:test', 'simplemocha']
     clean: ['out/']
 
   # plugins.
