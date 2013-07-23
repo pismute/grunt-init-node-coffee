@@ -95,8 +95,12 @@ module.exports = (grunt)->
     'coffee'
   ]
 
+  grunt.registerTask 'test', [
+    'simplemocha'
+  ]
+
   grunt.registerTask 'default', [
     'compile'
-    'simplemocha'
+    'test'
   ]
 

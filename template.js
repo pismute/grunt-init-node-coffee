@@ -41,26 +41,34 @@ exports.template = function(grunt, init, done) {
     init.prompt('author_name'),
     init.prompt('author_email'),
     init.prompt('author_url'),
-    init.prompt('node_version'),
-    init.prompt('main', function(value, data, done) {
-      done(null, 'out/lib/' + data.name);
-    }),
-    init.prompt('npm_test', 'grunt simplemocha')
+    init.prompt('node_version', '>= 0.8.0'),
+    init.prompt('main'),
+    init.prompt('npm_test', 'grunt test'),
+    {
+      name: 'travis',
+      message: 'Will this project be tested with Travis CI?',
+      default: 'Y/n',
+      warning: 'If selected, you must enable Travis support for this project in https://travis-ci.org/profile'
+    },
   ], function(err, props) {
     props.keywords = [];
     props.devDependencies = {
-      'grunt-contrib-jshint': '~0.4.3',
-      'grunt-contrib-watch': '~0.4.0',
+      'grunt-contrib-jshint': '~0.6.0',
+      'grunt-contrib-watch': '~0.5.0',
       'grunt-contrib-coffee': '~0.7.0',
-      'grunt-contrib-clean': '~0.4.1',
+      'grunt-contrib-clean': '~0.5.0',
       'grunt-contrib-copy': '~0.4.1',
-      'grunt-coffeelint': '~0.0.6',
+      'grunt-coffeelint': '~0.0.7',
       'grunt-simple-mocha': '~0.4.0',
       'should': '~1.2.2',
     };
+    // TODO: compute dynamically?
+    props.travis = /y/i.test(props.travis);
+    props.travis_node_version = '0.10';
 
     // Files to copy (and process).
     var files = init.filesToCopy(props);
+    if (!props.travis) { delete files['.travis.yml']; }
 
     // Add properly-named license files.
     init.addLicenseFiles(files, props.licenses);
@@ -73,6 +81,7 @@ exports.template = function(grunt, init, done) {
 
     // All done!
     done();
+
   });
 
 };

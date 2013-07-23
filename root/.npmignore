@@ -2,8 +2,8 @@
 
 .travis*
 History.md
-grunt.coffee
-grunt.js
+Gruntfile..coffee
+Gruntfile.js
 
 src/
 out/demo/

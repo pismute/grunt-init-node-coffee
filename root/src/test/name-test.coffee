@@ -1,6 +1,6 @@
 'use strict'
 
-{%= js_test_safe_name %} = require('../lib/{%= name %}.js')
+{%= js_test_safe_name %} = require('../lib/{%= name %}')
 
 ###
 ======== A Handy Little Mocha Reference ========
