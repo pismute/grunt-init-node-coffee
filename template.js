@@ -61,6 +61,7 @@ exports.template = function(grunt, init, done) {
       'grunt-coffeelint': '~0.0.7',
       'grunt-simple-mocha': '~0.4.0',
       'should': '~1.2.2',
+      'mocha-cakes': '~0.9.0',
     };
     // TODO: compute dynamically?
     props.travis = /y/i.test(props.travis);
