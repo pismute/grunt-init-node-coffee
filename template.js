@@ -9,7 +9,7 @@
 'use strict';
 
 // Basic template description.
-exports.description = 'Create a Node.js module in Coffeescript, including Mocha unit tests using Should assertion.';
+exports.description = 'Create a Node.js module in Coffeescript, including Mocha & mocha-cakes unit tests.';
 
 // Template-specific notes to be displayed before question prompts.
 exports.notes = '_Project name_ shouldn\'t contain "node" or "js" and should ' +

@@ -1,3 +1,11 @@
+/*
+ * {%= name %}
+ * {%= homepage %}
+ *
+ * Copyright (c) {%= grunt.template.today('yyyy') %} {%= author_name %}
+ * Licensed under the {%= licenses.join(', ') %} license{%= licenses.length === 1 ? '' : 's' %}.
+ */
+
 module.exports = (grunt)->
   'use strict'
 
@@ -32,9 +40,6 @@ module.exports = (grunt)->
         max_line_length:
           level: 'warn'
     coffee:
-      #compile:
-      #  files:
-      #    'out/lib/vender.js': ['src/vendor/*.coffee']
       lib:
         expand: true
         cwd: 'src/lib/'
