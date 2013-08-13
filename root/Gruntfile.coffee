@@ -9,6 +9,9 @@ Licensed under the {%= licenses.join(', ') %} license{%= licenses.length === 1 ?
 module.exports = (grunt)->
   'use strict'
 
+  _ = grunt.util._
+  path = require 'path'
+
   # Project configuration.
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
@@ -69,6 +72,8 @@ module.exports = (grunt)->
   grunt.loadNpmTasks 'grunt-contrib-watch'
 
   grunt.event.on 'watch', (action, files, target)->
+    grunt.log.writeln "#{target}: #{files} has #{action}"
+
     # coffeelint
     grunt.config ['coffeelint', target], src: files
 
