@@ -12,21 +12,6 @@ module.exports = (grunt)->
   # Project configuration.
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
-    jshint:
-      options:
-        jshintrc: '.jshintrc'
-      lib:
-        src: ['src/lib/**/*.js']
-      test:
-        src: ['src/test/**/*.js']
-    copy:
-      main:
-        files: [
-            expand: true
-            cwd: 'src/'
-            src: ['**/*.js']
-            dest: 'out/'
-        ]
     coffeelint:
       gruntfile:
         src: 'Gruntfile.coffee'
@@ -62,23 +47,16 @@ module.exports = (grunt)->
           globals: ['should']
           timeout: 3000
           ignoreLeaks: false
-          #grep: '**/*.js'
           ui: 'bdd'
           reporter: 'spec'
     watch:
       gruntfile:
         files: '<%= coffeelint.gruntfile.src %>'
         tasks: ['coffeelint:gruntfile']
-      jsLib:
-        files: '<%= jshint.lib.src %>'
-        tasks: ['jshint:lib', 'simplemocha']
-      jsTest:
-        files: '<%= jshint.test.src %>'
-        tasks: ['jshint:test', 'simplemocha']
-      coffeeLib:
+      lib:
         files: '<%= coffeelint.lib.src %>'
         tasks: ['coffeelint:lib', 'coffee:lib', 'simplemocha']
-      coffeeTest:
+      test:
         files: '<%= coffeelint.test.src %>'
         tasks: ['coffeelint:test', 'coffee:test', 'simplemocha']
     clean: ['out/']
@@ -88,15 +66,11 @@ module.exports = (grunt)->
   grunt.loadNpmTasks 'grunt-coffeelint'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-clean'
-  grunt.loadNpmTasks 'grunt-contrib-copy'
-  grunt.loadNpmTasks 'grunt-contrib-jshint'
   grunt.loadNpmTasks 'grunt-contrib-watch'
 
   # tasks.
   grunt.registerTask 'compile', [
     'coffeelint'
-    'jshint'
-    'copy'
     'coffee'
   ]
 
