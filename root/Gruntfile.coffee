@@ -68,6 +68,18 @@ module.exports = (grunt)->
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-watch'
 
+  grunt.event.on 'watch', (action, files, target)->
+    # coffeelint
+    grunt.config ['coffeelint', target], src: files
+
+    # coffee
+    coffeeData = grunt.config ['coffee', target]
+    files = [files] if _.isString files
+    files = _.map files, (file)-> path.relative coffeeData.cwd, file
+    coffeeData.src = files
+
+    grunt.config ['coffee', target], coffeeData
+
   # tasks.
   grunt.registerTask 'compile', [
     'coffeelint'
