@@ -9,6 +9,9 @@ Licensed under the {%= licenses.join(', ') %} license{%= licenses.length === 1 ?
 module.exports = (grunt)->
   'use strict'
 
+  # load all grunt tasks
+  (require 'matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks)
+
   _ = grunt.util._
   path = require 'path'
 
