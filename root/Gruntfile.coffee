@@ -53,6 +53,8 @@ module.exports = (grunt)->
           ui: 'bdd'
           reporter: 'spec'
     watch:
+      options:
+        spawn: false
       gruntfile:
         files: '<%= coffeelint.gruntfile.src %>'
         tasks: ['coffeelint:gruntfile']
