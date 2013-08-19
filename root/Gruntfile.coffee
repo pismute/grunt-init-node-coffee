@@ -20,11 +20,11 @@ module.exports = (grunt)->
     pkg: grunt.file.readJSON('package.json')
     coffeelint:
       gruntfile:
-        src: 'Gruntfile.coffee'
+        src: '<%= watch.gruntfile.files %>'
       lib:
-        src: ['src/lib/**/*.coffee']
+        src: '<%= watch.lib.files %>'
       test:
-        src: ['src/test/**/*.coffee']
+        src: '<%= watch.test.files %>'
       options:
         no_trailing_whitespace:
           level: 'error'
@@ -59,13 +59,13 @@ module.exports = (grunt)->
       options:
         spawn: false
       gruntfile:
-        files: '<%= coffeelint.gruntfile.src %>'
+        files: 'Gruntfile.coffee'
         tasks: ['coffeelint:gruntfile']
       lib:
-        files: '<%= coffeelint.lib.src %>'
+        files: ['src/lib/**/*.coffee']
         tasks: ['coffeelint:lib', 'coffee:lib', 'simplemocha']
       test:
-        files: '<%= coffeelint.test.src %>'
+        files: ['src/test/**/*.coffee']
         tasks: ['coffeelint:test', 'coffee:test', 'simplemocha']
     clean: ['out/']
 
