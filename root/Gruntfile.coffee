@@ -69,13 +69,6 @@ module.exports = (grunt)->
         tasks: ['coffeelint:test', 'coffee:test', 'simplemocha']
     clean: ['out/']
 
-  # plugins.
-  grunt.loadNpmTasks 'grunt-simple-mocha'
-  grunt.loadNpmTasks 'grunt-coffeelint'
-  grunt.loadNpmTasks 'grunt-contrib-coffee'
-  grunt.loadNpmTasks 'grunt-contrib-clean'
-  grunt.loadNpmTasks 'grunt-contrib-watch'
-
   grunt.event.on 'watch', (action, files, target)->
     grunt.log.writeln "#{target}: #{files} has #{action}"
 
