@@ -1,10 +1,13 @@
 # grunt-init-node
 
-> Create a Node.js module with [grunt-init][] for [Coffeescript][], including mocha & mocha-cakes unit tests.
+Obsolete, meet a new yeoman generator: https://github.com/pismute/generator-node-coffee
+
+> Create a Node.js module with [grunt-init][] for [Coffeescript][], including [Mocha][] & [Mocha-cakes][] unit tests.
 
 [grunt-init]: http://gruntjs.com/project-scaffolding
 [Coffeescript]: http://coffeescript.org/
 [Mocha]: http://visionmedia.github.com/mocha/
+[Mocha-cakes]: https://github.com/quangv/mocha-cakes
 
 ## Installation
 If you haven't already done so, install [grunt-init][].
