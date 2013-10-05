@@ -1,6 +1,6 @@
 # grunt-init-node
 
-Obsolete, meet a new yeoman generator: https://github.com/pismute/generator-node-coffee
+Obsolete, meet a new yeoman generator: https://github.com/pismute/generator-coffee
 
 > Create a Node.js module with [grunt-init][] for [Coffeescript][], including [Mocha][] & [Mocha-cakes][] unit tests.
 
