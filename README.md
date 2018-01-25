@@ -6,7 +6,7 @@ Obsolete, meet a new yeoman generator: https://github.com/pismute/generator-coff
 
 [grunt-init]: http://gruntjs.com/project-scaffolding
 [Coffeescript]: http://coffeescript.org/
-[Mocha]: http://visionmedia.github.com/mocha/
+[Mocha]: http://mochajs.org/
 [Mocha-cakes]: https://github.com/quangv/mocha-cakes
 
 ## Installation
